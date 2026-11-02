@@ -99,3 +99,11 @@ Auditability: The KAN gate's symbolic output ensures that business managers have
 Data Minimization: Raw video streams and PII never leave the local POS terminal unless explicitly required for a heavy cloud task. Feature extraction happens on the edge.
 
 Auditability: The KAN gate's symbolic output ensures that business managers have a mathematical audit trail explaining exactly why cloud computing costs were incurred at any given time.
+
+
+## 👨‍💻 Developer
+
+| **Name** | **Role** | **Link** |
+|---|---|---|
+| **Atharva Mahajan** | *Lead Developer* | [GitHub](https://github.com/mahajanatharva1042) |
+| **Shreyas Dinesh Pawar** | *Collaborator* | [GitHub](https://github.com/ShreyasP10) |
