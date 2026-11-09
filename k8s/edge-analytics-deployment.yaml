@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kan-edge-analytics
+  namespace: edge-system
+  labels:
+    app: kan-edge-analytics
+    tier: edge
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kan-edge-analytics
+  template:
+    metadata:
+      labels:
+        app: kan-edge-analytics
+    spec:
+      priorityClassName: low-priority-analytics
+      containers:
+      - name: router-and-inference
+        image: edge-pos-analytics:v1.0.0
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "512Mi"
+          limits:
+            cpu: "1500m"
+            memory: "1536Mi"
+        env:
+        - name: STORE_ID
+          value: "ST-0991"
+        - name: TERMINAL_ID
+          value: "POS-REG-01"
+        - name: CLOUD_FALLBACK_URL
+          value: "https://cloud-gpu.pos-analytics.internal/api/v1/infer"
+        - name: KAN_MODEL_PATH
+          value: "/app/models/kan_gate_weights.pt"
+        - name: SQLITE_DB_PATH
+          value: "/app/data/edge_analytics.db"
+        ports:
+        - containerPort: 8000
+          name: api
+        - containerPort: 9090
+          name: metrics
+        volumeMounts:
+        - name: sqlite-storage
+          mountPath: /app/data
+        - name: dev-shm
+          mountPath: /dev/shm
+      volumes:
+      - name: sqlite-storage
+        hostPath:
+          path: /var/lib/edge-analytics/data
+          type: DirectoryOrCreate
+      - name: dev-shm
+        emptyDir:
+          medium: Memory
+          sizeLimit: 256Mi
+

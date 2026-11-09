@@ -1,0 +1,43 @@
+FROM python:3.11-slim
+
+# Prevent Python from writing .pyc files and enable unbuffered logging
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Install system dependencies for OpenCV/Vulkan and network utilities
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    libgl1 \
+    libglib2.0-0 \
+    libgomp1 \
+    vulkan-tools \
+    libvulkan1 \
+    mesa-vulkan-drivers \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Install Python requirements
+COPY requirements.txt .
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Copy application source code and scripts
+COPY src/ /app/src/
+COPY scripts/ /app/scripts/
+
+# Create runtime directories for data and model weights
+RUN mkdir -p /app/data /app/models
+
+# Run as non-root unprivileged user for PCI-DSS compliance isolation
+RUN useradd -u 10001 -m analyticsuser && \
+    chown -R analyticsuser:analyticsuser /app
+USER analyticsuser
+
+EXPOSE 8000 9090
+
+HEALTHCHECK --interval=15s --timeout=3s --retries=3 \
+  CMD curl -f http://127.0.0.1:8000/healthz || exit 1
+
+CMD ["python", "-m", "src.main"]
+

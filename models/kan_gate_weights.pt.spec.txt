@@ -1,0 +1,1 @@
+score(x) = 0.852*V_avail - 1.240*Q_pressure - 0.412*S_payload + 0.285*L_bound + 0.190*T_thermal

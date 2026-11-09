@@ -93,12 +93,32 @@ JSON
 }
 ```
 # 🔒 Security & Compliance
-Data Minimization: Raw video streams and PII never leave the local POS terminal unless explicitly required for a heavy cloud task. Feature extraction happens on the edge.
+- **Data Minimization:** Raw video streams and PII never leave the local POS terminal unless explicitly required for a heavy cloud task. Feature extraction happens strictly on the edge.
+- **Auditability:** The KAN gate's symbolic output ensures that business managers and finance teams have a transparent mathematical audit trail explaining exactly why cloud computing costs were incurred at any given time.
+- **PCI-DSS Scoping:** Analytics pods run within strictly isolated unprivileged cgroups with zero access to cardholder data environments (CDE) or payment peripherals.
 
-Auditability: The KAN gate's symbolic output ensures that business managers have a mathematical audit trail explaining exactly why cloud computing costs were incurred at any given time.
-Data Minimization: Raw video streams and PII never leave the local POS terminal unless explicitly required for a heavy cloud task. Feature extraction happens on the edge.
+## 📖 Documentation
+Comprehensive architecture, engineering, deployment, and compliance specifications are available in the [`/docs/`](docs/INDEX.md) directory:
 
-Auditability: The KAN gate's symbolic output ensures that business managers have a mathematical audit trail explaining exactly why cloud computing costs were incurred at any given time.
+- 🚀 [**System Overview & Step-by-Step Usage Guide**](docs/SYSTEM_OVERVIEW_AND_USAGE.md): **Start here!** Targeted system specs, what it does, how it works, and end-to-end process to run.
+- 📋 [**Product Requirements Document (PRD)**](docs/PRD.md): Vision, user personas, functional/non-functional requirements, and KPIs.
+- ⚙️ [**Technical Requirements Document (TRD)**](docs/TRD.md): System architecture, hardware targets, K3s isolation, ONNX DirectML/Vulkan specs, and API contracts.
+- 🖥️ [**System Requirements Document (SRD)**](docs/SRD.md): Hardware interfaces, APU specs, memory bandwidth, display outputs, and thermal envelopes.
+- 📜 [**Software Requirements Specification (SRS)**](docs/SRS.md): IEEE 830-compliant specification covering module functional requirements, interfaces, and security bounds.
+- ⚡ [**AMD Vega & Radeon iGPU Optimization**](docs/AMD_VEGA_OPTIMIZATION.md): Running inference on AMD APUs, DirectML tuning, UMA BIOS apertures, and TDR prevention.
+- 🏗️ [**System Architecture & Topology**](docs/ARCHITECTURE.md): End-to-end topology, sequence diagrams, failure modes, and "Billing Always Wins" state machine.
+- 🧮 [**KAN Routing & Mathematical Auditability**](docs/KAN_ROUTING_SPEC.md): Kolmogorov-Arnold Network theory, B-spline math, pykan training, and formula extraction.
+- 🚀 [**Deployment & Operations Guide**](docs/DEPLOYMENT_GUIDE.md): Setup on Windows IoT/Linux POS, K3s manifests, driver verification, and Prometheus/Grafana monitoring.
+- 🛡️ [**Security, Privacy & Compliance**](docs/SECURITY_PRIVACY.md): PCI-DSS v4.0 boundaries, GDPR data minimization, mTLS, and STRIDE threat analysis.
+- 🔌 [**API Reference**](docs/API_REFERENCE.md): REST and WebSocket endpoint specifications, request/response models, and code samples.
+- 📅 [**Development Plan (DEV_PLAN)**](docs/DEV_PLAN.md): 5-sprint engineering roadmap, work breakdown structure, and hardware lab testing rig.
+- 🧱 [**Next Implementation Phase**](docs/nextImplementationPhase.md): Code scaffolding plan, sprint tickets, and physical hardware verification commands.
+- 📊 [**Software Integrity & Scalability Evaluation**](docs/SOFTWARE_EVALUATION_REPORT.md): Empirical test audit covering throughput (42.4 req/s), memory bounds, KAN preemption, and ISO 25010 factors.
+- 🔍 [**Architectural Review (REVIEW)**](docs/REVIEW.md): Trade-off analysis (cloud vs edge vs hybrid) and Architecture Review Board approval.
+- 📊 [**Version 4 Benchmark Audit (REVIEW_v4)**](docs/REVIEW_v4.md): 72-hour continuous soak test results under simulated grocery rush traffic.
+- 💡 [**Continuous Improvements & Roadmap**](docs/IMPROVEMENTS.md): Next-gen NPU acceleration (AMD Ryzen AI / XDNA), P2P local store mesh, and federated learning.
+- ⚠️ [**Risk Register & Mitigation Matrix**](docs/RISK_REGISTER.md): ISO 31000 risk scoring, contingency plans, and automated failover circuits.
+- 🧭 [**Master Documentation Hub**](docs/INDEX.md): Role-based reading tracks for executives, ML engineers, DevOps, and compliance teams.
 
 
 ## 👨‍💻 Developer

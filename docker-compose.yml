@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  edge-analytics-engine:
+    build:
+      context: .
+      dockerfile: Dockerfile.edge
+    container_name: kan-edge-pos-analytics
+    restart: unless-stopped
+    network_mode: "host"
+    environment:
+      - STORE_ID=ST-0991
+      - TERMINAL_ID=POS-REG-01
+      - PORT=8000
+      - METRICS_PORT=9090
+      - VRAM_TOTAL_MB=4096
+      - KAN_DECISION_THRESHOLD=0.50
+      - SQLITE_DB_PATH=/app/data/edge_analytics.db
+      - KAN_MODEL_PATH=/app/models/kan_gate_weights.pt
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - /dev/shm:/dev/shm
+    deploy:
+      resources:
+        limits:
+          cpus: '1.50'
+          memory: 1536M
+        reservations:
+          cpus: '0.25'
+          memory: 512M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8000/healthz"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+

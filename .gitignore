@@ -1,0 +1,36 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Environment and secrets
+.env
+*.local
+
+# Database and SQLite runtime files
+data/*.db
+data/*.db-wal
+data/*.db-shm
+*.db
+*.db-wal
+*.db-shm
+
+# Model weight checkpoints (large binaries)
+*.onnx
+models/*.pt
+!models/kan_gate_weights.pt.spec.txt
+
+# Log files
+logs/
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
