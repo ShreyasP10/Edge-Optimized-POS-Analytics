@@ -26,6 +26,7 @@ Welcome to the central engineering, architectural, and governance documentation 
 
 ### 3. Hardware Optimization & Deployment
 * ⚡ [**AMD_VEGA_OPTIMIZATION.md (AMD Vega Hardware Optimization Guide)**](AMD_VEGA_OPTIMIZATION.md): DirectML tuning, UMA BIOS apertures, memory bandwidth, TDR prevention, Vulkan Linux setup, and thermal monitoring.
+* 🛡️ [**RELIABILITY_AND_DISASTER_RECOVERY.md (Reliability & Disaster Recovery)**](RELIABILITY_AND_DISASTER_RECOVERY.md): **Resilience Guide.** Health checks, graceful degradation, circuit breakers, rate limiters, retries with jitter, idempotency keys, hot backup/restore drills, Multi-AZ topology, chaos experiments, and queue load leveling.
 * 🚀 [**DEPLOYMENT_GUIDE.md (Edge & Cloud Deployment Guide)**](DEPLOYMENT_GUIDE.md): Setup on Windows IoT & Linux POS, K3s installation, priority classes, Prometheus scraping, and OTA updates.
 
 ### 4. Engineering Roadmaps & Implementation

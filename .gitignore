@@ -17,6 +17,7 @@ ENV/
 data/*.db
 data/*.db-wal
 data/*.db-shm
+data/backups/
 *.db
 *.db-wal
 *.db-shm
@@ -34,3 +35,4 @@ logs/
 .DS_Store
 Thumbs.db
 Desktop.ini
+

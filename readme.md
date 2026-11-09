@@ -108,6 +108,7 @@ Comprehensive architecture, engineering, deployment, and compliance specificatio
 - ⚡ [**AMD Vega & Radeon iGPU Optimization**](docs/AMD_VEGA_OPTIMIZATION.md): Running inference on AMD APUs, DirectML tuning, UMA BIOS apertures, and TDR prevention.
 - 🏗️ [**System Architecture & Topology**](docs/ARCHITECTURE.md): End-to-end topology, sequence diagrams, failure modes, and "Billing Always Wins" state machine.
 - 🧮 [**KAN Routing & Mathematical Auditability**](docs/KAN_ROUTING_SPEC.md): Kolmogorov-Arnold Network theory, B-spline math, pykan training, and formula extraction.
+- 🛡️ [**Reliability, Resilience & Disaster Recovery**](docs/RELIABILITY_AND_DISASTER_RECOVERY.md): Deep health checks, circuit breakers, rate limiters, retries with jitter, idempotency, hot backup restore drills, Multi-AZ topology, and chaos experiments.
 - 🚀 [**Deployment & Operations Guide**](docs/DEPLOYMENT_GUIDE.md): Setup on Windows IoT/Linux POS, K3s manifests, driver verification, and Prometheus/Grafana monitoring.
 - 🛡️ [**Security, Privacy & Compliance**](docs/SECURITY_PRIVACY.md): PCI-DSS v4.0 boundaries, GDPR data minimization, mTLS, and STRIDE threat analysis.
 - 🔌 [**API Reference**](docs/API_REFERENCE.md): REST and WebSocket endpoint specifications, request/response models, and code samples.
